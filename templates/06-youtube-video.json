@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "YouTube Video",
+  "behavior": "create",
+  "noteContentFormat": "## Video Info\n\n- **Title**: {{title}}\n- **Channel**: {{author}}\n- **Published**: {{published}}\n- **URL**: {{url}}\n\n## Description\n\n{{description}}\n\n## Transcript\n\n> ⏳ TODO: 用 yt-dlp 下载字幕填入下方\n> \n> ```\n> yt-dlp --skip-download --write-auto-sub --sub-lang zh-Hans,en --convert-subs srt -o \"%(title)s.%(ext)s\" {{url}}\n> ```\n",
+  "properties": [
+    {
+      "name": "title",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "channel",
+      "value": "{{author}}",
+      "type": "text"
+    },
+    {
+      "name": "published",
+      "value": "{{published}}",
+      "type": "date"
+    },
+    {
+      "name": "created",
+      "value": "{{date}}",
+      "type": "date"
+    },
+    {
+      "name": "video_id",
+      "value": "{{url|replace:\"https://www.youtube.com/watch?v=\":\"\"|replace:\"https://youtu.be/\":\"\"|replace:\"https://m.youtube.com/watch?v=\":\"\"}}",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "video, youtube",
+      "type": "multitext"
+    }
+  ],
+  "triggers": [
+    "youtube.com/watch",
+    "youtu.be/"
+  ],
+  "noteNameFormat": "{{date}}_{{title|safe_name}}",
+  "path": "raw/videos"
+}

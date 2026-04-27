@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "Twitter (FxTwitter)",
+  "behavior": "create",
+  "noteContentFormat": "## Tweet\n\n{{content}}\n\n## Source\n\n- **Original**: {{url|replace:\"fxtwitter.com\":\"twitter.com\"|replace:\"vxtwitter.com\":\"twitter.com\"}}\n- **Captured**: {{date}}\n",
+  "properties": [
+    {
+      "name": "title",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url|replace:\"fxtwitter.com\":\"twitter.com\"|replace:\"vxtwitter.com\":\"twitter.com\"}}",
+      "type": "text"
+    },
+    {
+      "name": "author",
+      "value": "{{author}}",
+      "type": "text"
+    },
+    {
+      "name": "created",
+      "value": "{{date}}",
+      "type": "date"
+    },
+    {
+      "name": "tags",
+      "value": "tweet, social",
+      "type": "multitext"
+    }
+  ],
+  "triggers": [
+    "fxtwitter.com",
+    "vxtwitter.com"
+  ],
+  "noteNameFormat": "{{date}}_tweet_{{author|safe_name}}",
+  "path": "raw/social"
+}

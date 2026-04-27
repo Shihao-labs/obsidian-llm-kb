@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "Wikipedia",
+  "behavior": "create",
+  "noteContentFormat": "{{selectorHtml:\"#mw-content-text\"|markdown}}",
+  "properties": [
+    {
+      "name": "title",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "created",
+      "value": "{{date}}",
+      "type": "date"
+    },
+    {
+      "name": "description",
+      "value": "{{description}}",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "wiki, reference",
+      "type": "multitext"
+    }
+  ],
+  "triggers": [
+    "wikipedia.org/wiki/"
+  ],
+  "noteNameFormat": "{{date}}_{{title|safe_name}}",
+  "path": "raw/wiki"
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "arXiv Paper",
+  "behavior": "create",
+  "noteContentFormat": "## Abstract\n\n{{description}}\n\n## Full Content\n\n{{content}}",
+  "properties": [
+    {
+      "name": "title",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "author",
+      "value": "{{author|split:\\\", \\\"|wikilink|join}}",
+      "type": "multitext"
+    },
+    {
+      "name": "published",
+      "value": "{{published}}",
+      "type": "date"
+    },
+    {
+      "name": "created",
+      "value": "{{date}}",
+      "type": "date"
+    },
+    {
+      "name": "description",
+      "value": "{{description}}",
+      "type": "text"
+    },
+    {
+      "name": "arxiv_id",
+      "value": "{{url|replace:\\\"https://arxiv.org/abs/\\\":\\\"\\\"|replace:\\\"https://arxiv.org/html/\\\":\\\"\\\"|replace:\\\"https://arxiv.org/pdf/\\\":\\\"\\\"|replace:\\\".pdf\\\":\\\"\\\"|replace:\\\"v1\\\":\\\"\\\"|replace:\\\"v2\\\":\\\"\\\"|replace:\\\"v3\\\":\\\"\\\"}}",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "papers, arxiv",
+      "type": "multitext"
+    }
+  ],
+  "triggers": [
+    "https://arxiv.org/abs/",
+    "https://arxiv.org/html/",
+    "https://arxiv.org/pdf/"
+  ],
+  "noteNameFormat": "{{date|split:\\\"T\\\"|first}}_{{title|safe_name}}",
+  "path": "raw/papers"
+}

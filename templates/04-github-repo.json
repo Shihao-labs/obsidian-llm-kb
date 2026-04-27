@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "0.1.0",
+  "name": "GitHub Repo",
+  "behavior": "create",
+  "noteContentFormat": "{{selectorHtml:\".markdown-body\"|markdown}}",
+  "properties": [
+    {
+      "name": "title",
+      "value": "{{title}}",
+      "type": "text"
+    },
+    {
+      "name": "source",
+      "value": "{{url}}",
+      "type": "text"
+    },
+    {
+      "name": "repo",
+      "value": "{{url|replace:\"https://github.com/\":\"\"}}",
+      "type": "text"
+    },
+    {
+      "name": "created",
+      "value": "{{date}}",
+      "type": "date"
+    },
+    {
+      "name": "description",
+      "value": "{{description}}",
+      "type": "text"
+    },
+    {
+      "name": "tags",
+      "value": "code, github",
+      "type": "multitext"
+    }
+  ],
+  "triggers": [
+    "https://github.com/"
+  ],
+  "noteNameFormat": "{{date}}_{{title|safe_name}}",
+  "path": "raw/code"
+}
